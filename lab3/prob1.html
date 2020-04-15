@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var date=new Date();
+    function format(date) {
+        let result="";
+            if(date.getHours()<12)result= "Good Morning";
+            if(date.getHours()>=12&&date.getHours()<=17)result= "Good Evening";
+            if(date.getHours()>17)result= "Good Night";
+        return result
+
+    }
+    document.write(`
+    ${date}<br>
+    ${format(date)}
+
+    `)
+
+
+</script>
+
+
+
+</body>
+</html>

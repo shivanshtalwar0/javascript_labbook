@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+
+</head>
+
+<body onload="load">
+
+<form id="frmlab" onsubmit="nwindow()">
+    <table border="1" cellspacing="8" cellpadding="10" bordercolor="blue">
+        <tbody>
+        <tr>
+            <td colspan="100">
+                <h2 align="center">Create a New Window</h2>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="100" >
+                <h4 align="center">Window Size</h4>
+            </td>
+        </tr>
+        <tr>
+            <td >
+                Width:
+            </td>
+            <td >
+                <input required id="width" name="width" type="text">
+
+            </td>
+            <td >
+                Height:
+            </td>
+            <td >
+                <input required id="height" name="height" type="text">
+
+            </td>
+        </tr>
+        <tr >
+            <td colspan="100">
+                <h4 align="center">Position</h4>
+            </td>
+        </tr>
+        <tr>
+            <td >
+                Left:
+            </td>
+            <td >
+                <input required id="left" type="text">
+
+            </td>
+            <td >
+                Top:
+            </td>
+            <td >
+                <input required id="topu" type="text">
+            </td>
+        </tr>
+        <tr>
+            <td >
+           <button type="submit">New window</button>
+
+            </td>
+            <td >
+                <button onclick="reset()">Reset</button>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+</form>
+<script type="application/javascript">
+    let frmlab=document.getElementById('frmlab');
+    var width;
+    var height;
+    var top;
+    var left;
+    function load(){
+
+    }
+
+
+    function nwindow() {
+        event.preventDefault();
+        left=document.getElementById('left');
+        top=document.getElementById('topu');
+        height=document.getElementById('height');
+        width=document.getElementById('width');
+
+        if((/^[0-9]+$/.test(width.value)&&/^[0-9]+$/.test(height.value)&&/^[0-9]+$/.test(left.value))){
+            var myWindow = window.open("", "myWin", `left=${left.value}, top=${top.value}, width=${width.value}, height=${height.value}`);
+            myWindow.document.write("<p>This is 'myWin'");
+            myWindow.document.write("<br>ScreenX: " + myWindow.screenX);
+            myWindow.document.write("<br>ScreenY: " + myWindow.screenY + "</p>");
+        }
+        else{
+            console.log('invalid')
+        }
+
+    }
+    function reset() {
+        width.value=''
+        height.value=''
+        top.value=''
+        left.value=''
+
+    }
+</script>
+
+</body>
+</html>
